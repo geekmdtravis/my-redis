@@ -5,9 +5,7 @@ async fn main() -> Result<()> {
     let response = client::connect("127.0.0.1:6379").await;
     let mut client = response.expect("Error connecting to Redis");
 
-    client.set("hello", "world".into()).await?;
-    client.set("frank", "beans".into()).await?;
-    let result = client.get("hello").await?;
+    let result = client.get("frank").await?;
 
     println!("connected and got value: {:?}", result);
     Ok(())
